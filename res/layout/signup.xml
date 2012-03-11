@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tvEmailSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvEmailSignup" />
+
+    <EditText
+        android:id="@+id/etEmailSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvPasswdSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvPasswdSignup" />
+
+    <EditText
+        android:id="@+id/etPasswsSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/tvVerifySignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvVerifySignup" />
+
+    <EditText
+        android:id="@+id/etVerifySignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mi_signup" />
+
+</LinearLayout>

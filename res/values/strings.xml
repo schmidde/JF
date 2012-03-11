@@ -4,5 +4,9 @@
     <string name="hello">Hello World, JFActivity!</string>
     <string name="app_name">JF</string>
     <string name="btnLogin">Login</string>
+    <string name="mi_signup">Sign in</string>
+    <string name="tvEmailSignup">Email</string>
+    <string name="tvPasswdSignup">Password</string>
+    <string name="tvVerifySignup">Verify</string>
 
 </resources>
