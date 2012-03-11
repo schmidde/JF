@@ -44,6 +44,7 @@ public class LoginActivity extends Activity {
 				Log.i(LoginActivity.class.getName(),"onClick(): " + v);
 				if(checkLogin(email, passwd)){
 					startActivity(new Intent(LoginActivity.this, JFActivity.class));
+					finish();
 				}
 				else{
 					CharSequence s = errorLog;
