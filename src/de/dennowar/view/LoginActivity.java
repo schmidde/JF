@@ -17,10 +17,13 @@ import android.widget.Toast;
 public class LoginActivity extends Activity {
     /** Called when the activity is first created. */
 	private Context ctx = this;
+	private JfDbAdapter adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        adapter = new JfDbAdapter(this);
+        adapter.open();
         
         Button login = (Button) findViewById(R.id.btnLogin);
         
@@ -48,22 +51,14 @@ public class LoginActivity extends Activity {
     }
     
     public boolean checkLogin(String email, String passwd){
-    	Log.i(LoginActivity.class.getName(), "beginn check");
-    	JfDbAdapter adapter = new JfDbAdapter(ctx);
-    	adapter.open();
-    	Cursor c = adapter.fetchAllUser();
-    	if(c != null && !c.isNull(c.getColumnIndex("email"))){
-    		while(!c.isLast()){
-    			Log.i("EMAIL: ", email + " und " + c.getString(c.getColumnIndex("email")));
-    	    	Log.i("PASS: ", passwd + " und " + c.getString(c.getColumnIndex("passwd")));
-    	    	
-        		if(c.getString(c.getColumnIndex("passwd")).equals(passwd) && c.getString(c.getColumnIndex("email")).equals(email)){
-        			return true;
-        		}
-        		else return false;
+    	Log.i(LoginActivity.class.getName(), "checking Credentials");
+    	Cursor c = adapter.fetchUser(email);
+    	if(c.getCount() > 0){
+    		Log.i(LoginActivity.class.getName(), c.getString(c.getColumnIndex("email")));
+    		if(c.getString(c.getColumnIndex("passwd")).equals(passwd)){
+    			return true;
     		}
-    		return false;
     	}
-    	else return false;
+    	return false;
     }
 }
