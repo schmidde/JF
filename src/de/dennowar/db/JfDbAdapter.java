@@ -1,4 +1,4 @@
-package db;
+package de.dennowar.db;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -73,8 +73,15 @@ public class JfDbAdapter {
 		return mDb.insert(DB_TABLE, null, cv);
 	}
 	
+	public Cursor fetchAllUser(){
+		Cursor cur = mDb.query(DB_TABLE, new String[]{UID, EMAIL, PASSWD}, null, null, null, null, null, null);
+		if(cur != null){
+			cur.moveToFirst();
+		}
+		return cur;
+	}
 	public Cursor fetchUser(String email){
-		Cursor cur = mDb.query(true, DB_TABLE, new String[]{UID, EMAIL, PASSWD}, EMAIL + " = " + email, null, null, null, null, null);
+		Cursor cur = mDb.query(true, DB_TABLE, new String[]{UID, EMAIL, PASSWD}, EMAIL + " = '" + email + "'", null, null, null, null, null);
 		if(cur != null){
 			cur.moveToFirst();
 		}
